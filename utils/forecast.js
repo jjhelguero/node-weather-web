@@ -13,7 +13,11 @@ const forecast = (latitude, longitude, callback) => {
             const temp = data.temperature 
             const feelsLike = data.feelslike
             const weatherDescription = data.weather_descriptions[0]
-            const weatherReport = `${weatherDescription}. It is currently ${temp} degrees outside. It feels like ${feelsLike} degrees outside.`
+            const windSpeed = data.wind_speed
+            const windDegree = data.wind_degree
+            const windDirection = data.wind_dir
+            const weatherReport = `${weatherDescription}. It is currently ${temp} degrees outside. It feels like `
+                + `${feelsLike} degrees outside with wind speeds of ${windSpeed} mph at ${windDegree} degrees in ${windDirection} direction.`
             callback(undefined, { weatherReport })
         }
     })
